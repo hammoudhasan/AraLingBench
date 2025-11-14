@@ -163,6 +163,9 @@ cifar-10-batches-py
 tests/.data
 tests/data
 
+# Latex files
+*.tex
+
 # outputs folder
 wandb
 dump.py
