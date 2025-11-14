@@ -1,204 +1,102 @@
-<p align="center">
-  <br/>
-    <img alt="lighteval library logo" src="./assets/lighteval-doc.svg" width="376" height="59" style="max-width: 100%;">
-  <br/>
-</p>
-
+<h1 align="center">AraLingBench</h1>
+<p align="center"><em>A human-annotated benchmark stress-testing the Arabic linguistic core of large language models.</em></p>
 
 <p align="center">
-    <i>Your go-to toolkit for lightning-fast, flexible LLM evaluation, from Hugging Face's Leaderboard and Evals Team.</i>
+  <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://huggingface.co/datasets/KAUST-VisionLab/AraLingBench"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-yellow" alt="Hugging Face Dataset"></a>
+  <img src="https://img.shields.io/badge/Questions-150-green.svg" alt="Questions">
+  <img src="https://img.shields.io/badge/Categories-5-orange.svg" alt="Categories">
 </p>
 
-<div align="center">
-
-[![Tests](https://github.com/huggingface/lighteval/actions/workflows/tests.yaml/badge.svg?branch=main)](https://github.com/huggingface/lighteval/actions/workflows/tests.yaml?query=branch%3Amain)
-[![Quality](https://github.com/huggingface/lighteval/actions/workflows/quality.yaml/badge.svg?branch=main)](https://github.com/huggingface/lighteval/actions/workflows/quality.yaml?query=branch%3Amain)
-[![Python versions](https://img.shields.io/pypi/pyversions/lighteval)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/huggingface/lighteval/blob/main/LICENSE)
-[![Version](https://img.shields.io/pypi/v/lighteval)](https://pypi.org/project/lighteval/)
-
-</div>
-
----
-
+<p align="center"><strong>Mohammad Zbib<sup>1,2†</sup> · Hasan Abed Al Kader Hammoud<sup>1†</sup> · Sina Mukalled<sup>2</sup> · Nadine Rizk<sup>2</sup> · Fatima Karnib<sup>2</sup> · Issam Lakkis<sup>2</sup> · Ammar Mohanna<sup>2</sup> · Bernard Ghanem<sup>1</sup></strong></p>
+<p align="center"><sub><sup>1</sup>King Abdullah University of Science and Technology (KAUST) · <sup>2</sup>American University of Beirut (AUB) · <sup>†</sup>Equal contribution</sub></p>
 <p align="center">
-  <a href="https://huggingface.co/docs/lighteval/main/en/index" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/Documentation-4F4F4F?style=for-the-badge&logo=readthedocs&logoColor=white" />
-  </a>
-  <a href="https://huggingface.co/spaces/OpenEvals/open_benchmark_index" target="_blank">
-    <img alt="Open Benchmark Index" src="https://img.shields.io/badge/Open%20Benchmark%20Index-4F4F4F?style=for-the-badge&logo=huggingface&logoColor=white" />
-  </a>
+  <img src="assets/araling.png" alt="AraLingBench logo" width="480">
 </p>
+> **TL;DR**  
+> AraLingBench is a 150-question, expert-authored benchmark that isolates five fundamental pillars of Arabic proficiency—grammar, morphology, spelling, reading comprehension, and syntax—to diagnose whether LLMs possess genuine linguistic competence rather than surface-level fluency.
 
----
+## Why AraLingBench?
+- **Linguistic-first focus:** Existing Arabic benchmarks emphasize knowledge recall and general reasoning; AraLingBench explicitly measures structural language understanding.
+- **Human-authored and validated:** All items are original creations vetted by trained Arabic linguists and reviewed for clarity, difficulty, and single-answer correctness.
+- **Granular diagnosis:** Balanced coverage across five linguistic categories exposes which capabilities each model truly masters.
 
-**Lighteval** is your *all-in-one toolkit* for evaluating LLMs across multiple
-backends—whether your model is being **served somewhere** or **already loaded in memory**.
-Dive deep into your model's performance by saving and exploring *detailed,
-sample-by-sample results* to debug and see how your models stack-up.
+## Benchmark at a Glance
 
-*Customization at your fingertips*: letting you either browse all our existing tasks and [metrics](https://huggingface.co/docs/lighteval/metric-list) or effortlessly create your own [custom task](https://huggingface.co/docs/lighteval/adding-a-custom-task) and [custom metric](https://huggingface.co/docs/lighteval/adding-a-new-metric), tailored to your needs.
+| Dimension | Details |
+| --- | --- |
+| Total questions | 150 multiple-choice prompts authored by experts |
+| Categories | Grammar, Morphology, Spelling & Orthography, Reading Comprehension, Syntax (30 items each) |
+| Difficulty | 33% Easy · 49% Medium · 17% Hard (annotated by majority vote) |
+| Answer format | 83% four-choice · 17% three-choice items; balanced answer key (A: 34%, B: 27.3%, C: 26%, D: 12.7%) |
+| Evaluation protocol | Zero-shot, single-letter responses scored by accuracy per category and overall |
 
+## Crafting the Benchmark
+1. **Question Generation:** Five experts authored novel problems rooted in real linguistic phenomena (Nahw, Sarf, Imlaa, Fahm al-logha, Tarkib Lughawi).
+2. **Filtering for Diversity & Difficulty:** Native speakers validated clarity and ensured each item remained non-trivial and covered unique skills.
+3. **Expert Quality Control:** A senior linguist enforced strict category alignment, unambiguous wording, and exactly one correct answer.
+4. **Difficulty Annotation:** Three independent annotators labeled each item (Easy/Medium/Hard) via majority vote, yielding an intentionally medium-heavy set for discriminative power.
 
-## Available Tasks
+## Leaderboard Snapshot
+| Model | Spelling | Syntax | Morphology | Grammar | Reading | Avg |
+| --- | --- | --- | --- | --- | --- | --- |
+| Navid-AI/Yehia-7B-preview | 86.7 | 53.3 | 80.0 | 80.0 | 70.0 | **74.0** |
+| ALLaM-7B-Instruct-preview | 86.7 | 60.0 | 73.3 | 73.3 | 76.7 | **74.0** |
+| Yehia-7B-Reasoning-preview | 80.0 | 50.0 | 80.0 | 76.7 | 73.3 | 72.0 |
+| Yehia-7B-DPO-Reasoning-preview | 80.0 | 50.0 | 80.0 | 76.7 | 73.3 | 72.0 |
+| Yehia-7B-SFT-Reasoning-preview | 76.7 | 36.7 | 66.7 | 76.7 | 73.3 | 66.0 |
+| tempmotacilla-cinerea-0308 | 63.3 | 60.0 | 60.0 | 60.0 | 70.0 | 62.7 |
+| Qwen2.5-Lumen-14B | 70.0 | 56.7 | 63.3 | 60.0 | 60.0 | 62.0 |
+| Saka-14B | 66.7 | 56.7 | 63.3 | 60.0 | 60.0 | 61.3 |
+| SUHAIL-14B-preview | 60.0 | 60.0 | 70.0 | 63.3 | 53.3 | 61.3 |
+| lambda-qwen2.5-14b-dpo-test | 70.0 | 60.0 | 60.0 | 60.0 | 56.7 | 61.3 |
 
-Lighteval supports **1000+ evaluation tasks** across multiple domains and
-languages. Use [this
-space](https://huggingface.co/spaces/OpenEvals/open_benchmark_index) to find what
-you need, or, here's an overview of some *popular benchmarks*:
+## Getting Started
 
+### 1. Install the evaluation harness
+```bash
+pip install -e .
+```
 
-### 📚 **Knowledge**
-- **General Knowledge**: MMLU, MMLU-Pro, MMMU, BIG-Bench
-- **Question Answering**: TriviaQA, Natural Questions, SimpleQA, Humanity's Last Exam (HLE)
-- **Specialized**: GPQA, AGIEval
-
-### 🧮 **Math and Code**
-- **Math Problems**: GSM8K, GSM-Plus, MATH, MATH500
-- **Competition Math**: AIME24, AIME25
-- **Multilingual Math**: MGSM (Grade School Math in 10+ languages)
-- **Coding Benchmarks**: LCB (LiveCodeBench)
-
-### 🎯 **Chat Model Evaluation**
-- **Instruction Following**: IFEval, IFEval-fr
-- **Reasoning**: MUSR, DROP (discrete reasoning)
-- **Long Context**: RULER
-- **Dialogue**: MT-Bench
-- **Holistic Evaluation**: HELM, BIG-Bench
-
-### 🌍 **Multilingual Evaluation**
-- **Cross-lingual**: XTREME, Flores200 (200 languages), XCOPA, XQuAD
-- **Language-specific**:
-  - **Arabic**: ArabicMMLU
-  - **Filipino**: FilBench
-  - **French**: IFEval-fr, GPQA-fr, BAC-fr
-  - **German**: German RAG Eval
-  - **Serbian**: Serbian LLM Benchmark, OZ Eval
-  - **Turkic**: TUMLU (9 Turkic languages)
-  - **Chinese**: CMMLU, CEval, AGIEval
-  - **Russian**: RUMMLU, Russian SQuAD
-  - **And many more...**
-
-### 🧠 **Core Language Understanding**
-- **NLU**: GLUE, SuperGLUE, TriviaQA, Natural Questions
-- **Commonsense**: HellaSwag, WinoGrande, ProtoQA
-- **Natural Language Inference**: XNLI
-- **Reading Comprehension**: SQuAD, XQuAD, MLQA, Belebele
-
-
-## ⚡️ Installation
-
-> **Note**: lighteval is currently *completely untested on Windows*, and we don't support it yet. (*Should be fully functional on Mac/Linux*)
+### 2. Evaluate a model
+Use the provided evaluation script to run both difficulty-level and category-level evaluations:
 
 ```bash
-pip install lighteval
+bash run_arabench_single_model.sh
 ```
 
-Lighteval allows for *many extras* when installing, see [here](https://huggingface.co/docs/lighteval/installation) for a **complete list**.
+The script evaluates models on:
+- **Difficulty levels**: Easy, Medium, Hard
+- **Linguistic categories**: Grammar (النحو), Morphology (الصرف), Spelling (الإملاء), Syntax (التركيب اللغوي والأسلوبي), Reading Comprehension (فهم اللغة)
 
-If you want to push results to the **Hugging Face Hub**, add your access token as
-an environment variable:
-
-```shell
-hf auth login
-```
-
-## 🚀 Quickstart
-
-Lighteval offers the following entry points for model evaluation:
-
-- `lighteval eval`: Evaluation models using [inspect-ai](https://inspect.aisi.org.uk/) as a backend (prefered).
-- `lighteval accelerate`: Evaluate models on CPU or one or more GPUs using [🤗
-  Accelerate](https://github.com/huggingface/accelerate)
-- `lighteval nanotron`: Evaluate models in distributed settings using [⚡️
-  Nanotron](https://github.com/huggingface/nanotron)
-- `lighteval vllm`: Evaluate models on one or more GPUs using [🚀
-  VLLM](https://github.com/vllm-project/vllm)
-- `lighteval sglang`: Evaluate models using [SGLang](https://github.com/sgl-project/sglang) as backend
-- `lighteval endpoint`: Evaluate models using various endpoints as backend
-  - `lighteval endpoint inference-endpoint`: Evaluate models using Hugging Face's [Inference Endpoints API](https://huggingface.co/inference-endpoints/dedicated)
-  - `lighteval endpoint tgi`: Evaluate models using [🔗 Text Generation Inference](https://huggingface.co/docs/text-generation-inference/en/index) running locally
-  - `lighteval endpoint litellm`: Evaluate models on any compatible API using [LiteLLM](https://www.litellm.ai/)
-  - `lighteval endpoint inference-providers`: Evaluate models using [HuggingFace's inference providers](https://huggingface.co/docs/inference-providers/en/index) as backend
-
-Did not find what you need ? You can always make your custom model API by following [this guide](https://huggingface.co/docs/lighteval/main/en/evaluating-a-custom-model)
-- `lighteval custom`: Evaluate custom models (can be anything)
-
-Here's a **quick command** to evaluate using the *Accelerate backend*:
-
-```shell
-lighteval eval "hf-inference-providers/openai/gpt-oss-20b" gpqa:diamond
-```
-
-Or use the **Python API** to run a model *already loaded in memory*!
-
-```python
-from transformers import AutoModelForCausalLM
-
-from lighteval.logging.evaluation_tracker import EvaluationTracker
-from lighteval.models.transformers.transformers_model import TransformersModel, TransformersModelConfig
-from lighteval.pipeline import ParallelismManager, Pipeline, PipelineParameters
-
-
-MODEL_NAME = "meta-llama/Meta-Llama-3-8B-Instruct"
-BENCHMARKS = "gsm8k"
-
-evaluation_tracker = EvaluationTracker(output_dir="./results")
-pipeline_params = PipelineParameters(
-    launcher_type=ParallelismManager.NONE,
-    max_samples=2
-)
-
-model = AutoModelForCausalLM.from_pretrained(
-  MODEL_NAME, device_map="auto"
-)
-config = TransformersModelConfig(model_name=MODEL_NAME, batch_size=1)
-model = TransformersModel.from_model(model, config)
-
-pipeline = Pipeline(
-    model=model,
-    pipeline_parameters=pipeline_params,
-    evaluation_tracker=evaluation_tracker,
-    tasks=BENCHMARKS,
-)
-
-results = pipeline.evaluate()
-pipeline.show_results()
-results = pipeline.get_results()
-```
-
-## 🙏 Acknowledgements
-
-Lighteval took inspiration from the following *amazing* frameworks: Eleuther's [AI Harness](https://github.com/EleutherAI/lm-evaluation-harness) and Stanford's
-[HELM](https://crfm.stanford.edu/helm/latest/). We are grateful to their teams for their **pioneering work** on LLM evaluations.
-
-We'd also like to offer our thanks to all the community members who have contributed to the library, adding new features and reporting or fixing bugs.
-
-## 🌟 Contributions Welcome 💙💚💛💜🧡
-
-**Got ideas?** Found a bug? Want to add a
-[task](https://huggingface.co/docs/lighteval/adding-a-custom-task) or
-[metric](https://huggingface.co/docs/lighteval/adding-a-new-metric)?
-Contributions are *warmly welcomed*!
-
-If you're adding a **new feature**, please *open an issue first*.
-
-If you open a PR, don't forget to **run the styling**!
-
+To evaluate your own model, edit the `MODEL` variable in `run_arabench_single_model.sh`:
 ```bash
-pip install -e .[dev]
-pre-commit install
-pre-commit run --all-files
+MODEL="your-org/your-model-name"
 ```
-## 📜 Citation
+
+## Citation
+
+If you use AraLingBench in your research, please cite our work:
 
 ```bibtex
-@misc{lighteval,
-  author = {Habib, Nathan and Fourrier, Clémentine and Kydlíček, Hynek and Wolf, Thomas and Tunstall, Lewis},
-  title = {LightEval: A lightweight framework for LLM evaluation},
-  year = {2023},
-  version = {0.11.0},
-  url = {https://github.com/huggingface/lighteval}
+@article{zbib2025aralingbench,
+  title        = {AraLingBench: A Human-Annotated Benchmark for Evaluating Arabic Linguistic Capabilities of Large Language Models},
+  author       = {Mohammad Zbib and Hasan Abed Al Kader Hammoud and Sina Mukalled and Nadine Rizk and Fatima Karnib and Issam Lakkis and Ammar Mohanna and Bernard Ghanem},
+  journal      = {arXiv preprint arXiv:XXXX.XXXXX},
+  year         = {2025},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  url          = {https://arxiv.org/abs/XXXX.XXXXX}
 }
 ```
-# AraLingBench
+
+---
+
+## Contact & Contributing
+
+We welcome feedback and contributions! If you'd like to:
+- Evaluate your model on AraLingBench
+- Report issues or suggest improvements
+- Contribute additional diagnostic tasks
+
+Please open an issue or reach out to the authors.
