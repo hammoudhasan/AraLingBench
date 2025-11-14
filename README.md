@@ -8,13 +8,20 @@
   <img src="https://img.shields.io/badge/Categories-5-orange.svg" alt="Categories">
 </p>
 
-<p align="center"><strong>Mohammad Zbib<sup>1,2†</sup> · Hasan Abed Al Kader Hammoud<sup>1†</sup> · Sina Mukalled<sup>2</sup> · Nadine Rizk<sup>2</sup> · Fatima Karnib<sup>2</sup> · Issam Lakkis<sup>2</sup> · Ammar Mohanna<sup>2</sup> · Bernard Ghanem<sup>1</sup></strong></p>
-<p align="center"><sub><sup>1</sup>King Abdullah University of Science and Technology (KAUST) · <sup>2</sup>American University of Beirut (AUB) · <sup>†</sup>Equal contribution</sub></p>
+<p align="center"><strong>Mohammad Zbib<sup>1,2†</sup>, Hasan Abed Al Kader Hammoud<sup>1†</sup>, Sina Mukalled<sup>2</sup>, Nadine Rizk<sup>2</sup>, Fatima Karnib<sup>2</sup>, Issam Lakkis<sup>2</sup>, Ammar Mohanna<sup>2</sup>, Bernard Ghanem<sup>1</sup></strong></p>
+<p align="center"><sub><sup>1</sup>King Abdullah University of Science and Technology (KAUST), <sup>2</sup>American University of Beirut (AUB), <sup>†</sup>Equal contribution</sub></p>
 <p align="center">
   <img src="assets/araling.png" alt="AraLingBench logo" width="480">
 </p>
-> **TL;DR**  
-> AraLingBench is a 150-question, expert-authored benchmark that isolates five fundamental pillars of Arabic proficiency—grammar, morphology, spelling, reading comprehension, and syntax—to diagnose whether LLMs possess genuine linguistic competence rather than surface-level fluency.
+<div align="center">
+<table>
+<tr>
+<td>
+<strong>TL;DR:</strong> AraLingBench is a 150-question, expert-authored benchmark that isolates five fundamental pillars of Arabic proficiency - grammar, morphology, spelling, reading comprehension, and syntax - to diagnose whether LLMs possess genuine linguistic competence rather than surface-level fluency.
+</td>
+</tr>
+</table>
+</div>
 
 ## Why AraLingBench?
 - **Linguistic-first focus:** Existing Arabic benchmarks emphasize knowledge recall and general reasoning; AraLingBench explicitly measures structural language understanding.
@@ -27,8 +34,8 @@
 | --- | --- |
 | Total questions | 150 multiple-choice prompts authored by experts |
 | Categories | Grammar, Morphology, Spelling & Orthography, Reading Comprehension, Syntax (30 items each) |
-| Difficulty | 33% Easy · 49% Medium · 17% Hard (annotated by majority vote) |
-| Answer format | 83% four-choice · 17% three-choice items; balanced answer key (A: 34%, B: 27.3%, C: 26%, D: 12.7%) |
+| Difficulty | 33% Easy, 49% Medium, 17% Hard (annotated by majority vote) |
+| Answer format | 83% four-choice, 17% three-choice items; balanced answer key (A: 34%, B: 27.3%, C: 26%, D: 12.7%) |
 | Evaluation protocol | Zero-shot, single-letter responses scored by accuracy per category and overall |
 
 ## Crafting the Benchmark
@@ -90,13 +97,3 @@ If you use AraLingBench in your research, please cite our work:
 }
 ```
 
----
-
-## Contact & Contributing
-
-We welcome feedback and contributions! If you'd like to:
-- Evaluate your model on AraLingBench
-- Report issues or suggest improvements
-- Contribute additional diagnostic tasks
-
-Please open an issue or reach out to the authors.
