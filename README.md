@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2511.14295"><img src="https://img.shields.io/badge/arXiv-2511.14295-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://huggingface.co/datasets/hasanhammoud/arabench"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-yellow" alt="Hugging Face Dataset"></a>
+  <a href="https://huggingface.co/datasets/hammh0a/AraLingBench"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-yellow" alt="Hugging Face Dataset"></a>
   <img src="https://img.shields.io/badge/Questions-150-green.svg" alt="Questions">
   <img src="https://img.shields.io/badge/Categories-5-orange.svg" alt="Categories">
 </p>
