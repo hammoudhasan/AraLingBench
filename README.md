@@ -1,5 +1,5 @@
 <h1 align="center">AraLingBench</h1>
-<p align="center"><em>A human-annotated benchmark stress-testing the Arabic linguistic core of large language models.</em></p>
+<p align="center"><em>A human annotated benchmark stress-testing the Arabic linguistic core of large language models.</em></p>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2511.14295"><img src="https://img.shields.io/badge/arXiv-2511.14295-b31b1b.svg" alt="arXiv"></a>
