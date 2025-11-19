@@ -24,8 +24,8 @@
 </div>
 
 ## Why AraLingBench?
-- **Linguistic-first focus:** Existing Arabic benchmarks emphasize knowledge recall and general reasoning; AraLingBench explicitly measures structural language understanding.
-- **Human-authored and validated:** All items are original creations vetted by trained Arabic linguists and reviewed for clarity, difficulty, and single-answer correctness.
+- **Linguistic first focus:** Existing Arabic benchmarks emphasize knowledge recall and general reasoning; AraLingBench explicitly measures structural language understanding.
+- **Human authored and validated:** All items are original creations vetted by trained Arabic linguists and reviewed for clarity, difficulty, and single-answer correctness.
 - **Granular diagnosis:** Balanced coverage across five linguistic categories exposes which capabilities each model truly masters.
 
 ## Benchmark at a Glance
