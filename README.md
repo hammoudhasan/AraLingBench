@@ -2,7 +2,7 @@
 <p align="center"><em>A human-annotated benchmark stress-testing the Arabic linguistic core of large language models.</em></p>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://arxiv.org/abs/2511.14295"><img src="https://img.shields.io/badge/arXiv-2511.14295-b31b1b.svg" alt="arXiv"></a>
   <a href="https://huggingface.co/datasets/hasanhammoud/arabench"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-yellow" alt="Hugging Face Dataset"></a>
   <img src="https://img.shields.io/badge/Questions-150-green.svg" alt="Questions">
   <img src="https://img.shields.io/badge/Categories-5-orange.svg" alt="Categories">
@@ -81,6 +81,10 @@ To evaluate your own model, edit the `MODEL` variable in `run_arabench_single_mo
 MODEL="your-org/your-model-name"
 ```
 
+## Disclaimer
+
+Our code is built on [lighteval](https://github.com/huggingface/lighteval) code base.
+
 ## Citation
 
 If you use AraLingBench in your research, please cite our work:
@@ -89,11 +93,11 @@ If you use AraLingBench in your research, please cite our work:
 @article{zbib2025aralingbench,
   title        = {AraLingBench: A Human-Annotated Benchmark for Evaluating Arabic Linguistic Capabilities of Large Language Models},
   author       = {Mohammad Zbib and Hasan Abed Al Kader Hammoud and Sina Mukalled and Nadine Rizk and Fatima Karnib and Issam Lakkis and Ammar Mohanna and Bernard Ghanem},
-  journal      = {arXiv preprint arXiv:XXXX.XXXXX},
+  journal      = {arXiv preprint arXiv:2511.14295},
   year         = {2025},
   archivePrefix= {arXiv},
   primaryClass = {cs.CL},
-  url          = {https://arxiv.org/abs/XXXX.XXXXX}
+  url          = {https://arxiv.org/abs/2511.14295}
 }
 ```
 
